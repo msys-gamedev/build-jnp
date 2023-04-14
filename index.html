@@ -21,17 +21,17 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/Build.loader.js";
+        var loaderUrl = buildUrl + "/JNPBuild.loader.js";
         var config = {
-          dataUrl: buildUrl + "/Build.data",
-          frameworkUrl: buildUrl + "/Build.framework.js",
-          codeUrl: buildUrl + "/Build.wasm",
+          dataUrl: buildUrl + "/JNPBuild.data",
+          frameworkUrl: buildUrl + "/JNPBuild.framework.js",
+          codeUrl: buildUrl + "/JNPBuild.wasm",
           memoryUrl: buildUrl + "/",
           symbolsUrl: buildUrl + "/",
           streamingAssetsUrl: "StreamingAssets",
-          companyName:  "Multisys Technologies Corporation",
+          companyName:  "MultisysCorp",
           productName: "Jnp-Multip",
-          productVersion: "1.1",
+          productVersion: "1",
         };
 
         var container = document.querySelector("#unity-container");
