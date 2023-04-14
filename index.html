@@ -21,11 +21,11 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/JNPBuild.loader.js";
+        var loaderUrl = buildUrl + "/build-multip-jnp.loader.js";
         var config = {
-          dataUrl: buildUrl + "/JNPBuild.data",
-          frameworkUrl: buildUrl + "/JNPBuild.framework.js",
-          codeUrl: buildUrl + "/JNPBuild.wasm",
+          dataUrl: buildUrl + "/build-multip-jnp.data",
+          frameworkUrl: buildUrl + "/build-multip-jnp.framework.js",
+          codeUrl: buildUrl + "/build-multip-jnp.wasm",
           memoryUrl: buildUrl + "/",
           symbolsUrl: buildUrl + "/",
           streamingAssetsUrl: "StreamingAssets",
@@ -73,7 +73,7 @@
                   this.unityInstance = unityInstance;
                   loadingBar.style.display = "none";
 
-                  var _data = urlParams.get('auth') + "&" + urlParams.get('uuid');
+                  var _data = urlParams.get('auth') + "&" + urlParams.get('uuid') + "&" + urlParams.get('sett');
                   unityInstance.SendMessage("Data Manager", "InitializeGame", _data);
 
                   document.addEventListener('mousemove', resetTimer);
