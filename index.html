@@ -73,11 +73,15 @@
                   this.unityInstance = unityInstance;
                   loadingBar.style.display = "none";
 
-                  var _data = urlParams.get('auth') + "&" + urlParams.get('uuid');
+                  var _data = urlParams.get('auth') + "&" + urlParams.get('uuid') + "&" + urlParams.get('sett');
                   unityInstance.SendMessage("Data Manager", "InitializeGame", _data);
 
                   document.addEventListener('mousemove', resetTimer);
                   document.addEventListener('keypress', resetTimer);
+
+                  document.addEventListener('touchstart', resetTimer);
+                  document.addEventListener('click', resetTimer);
+
                   startTimer();
 
 
