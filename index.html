@@ -97,19 +97,28 @@
               document.addEventListener("visibilitychange", handleVisibilityChange);
           }
 
-        function handleVisibilityChange() {
-            if (document.hidden) {
-                unityInstance.SendMessage("Data Manager", "ForceDisconnect");
-                unityInstance.SendMessage("Data Manager", "OnPause", 1);
-            }
-            else {
-                unityInstance.SendMessage("Data Manager", "OnPause", 0);
-            }
-        }
+          function handleVisibilityChange() {
+              if (document.hidden) {
+                  MuteAudio();
+              }
+              else {
+                  UnMuteAudio();
+              }
+          }
 
       window.addEventListener('offline', function(){
         unityInstance.SendMessage("Data Manager", "NoNetwork");
       });
+
+      function MuteAudio() {
+
+          unityInstance.SendMessage("Data Manager", "MuteAudio");
+      }
+
+      function UnMuteAudio() {
+
+          unityInstance.SendMessage("Data Manager", "UnMuteAudio");
+      }
 
 
       function startTimer() {
