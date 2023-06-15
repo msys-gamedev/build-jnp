@@ -94,22 +94,34 @@
           };
           document.body.appendChild(script);
 
-          var timeoutID;
+      var timeoutID;
 
-          if (typeof document.hidden !== "undefined") {
-              document.addEventListener("visibilitychange", handleVisibilityChange);
-          }
+      if (typeof document.hidden !== "undefined") {
+          document.addEventListener("visibilitychange", handleVisibilityChange);
+      }
 
-          function handleVisibilityChange() {
-              if (document.hidden) {
-                  unityInstance.SendMessage("Data Manager", "ForceDisconnect");
-              }
+      function handleVisibilityChange() {
+          if (document.hidden) {
+              MuteAudio();
           }
+          else {
+              UnMuteAudio();
+          }
+      }
 
       window.addEventListener('offline', function(){
         unityInstance.SendMessage("Data Manager", "NoNetwork");
       });
 
+      function MuteAudio() {
+
+          unityInstance.SendMessage("Data Manager", "MuteAudio");
+      }
+
+      function UnMuteAudio() {
+
+          unityInstance.SendMessage("Data Manager", "UnMuteAudio");
+      }
 
       function startTimer() {
         timeoutID = window.setTimeout(doInactive, 60000); // set timer to 60 seconds
