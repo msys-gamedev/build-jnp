@@ -109,15 +109,6 @@
           }
       }
 
-      function ExitGame(val, token) {
-            if (urlParams.has('lobby')) {
-                var lob = urlParams.get('lobby') + '/?' + urlParams.get('partner_id');
-                window.location.href = lob + '&token=' + token;
-            } else {
-                window.location.href = "ayos://Exit?code=" + val;
-            }
-        }
-
       window.addEventListener('offline', function(){
         unityInstance.SendMessage("Data Manager", "NoNetwork");
       });
